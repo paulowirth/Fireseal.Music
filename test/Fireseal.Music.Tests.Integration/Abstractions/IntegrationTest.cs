@@ -20,7 +20,6 @@ public abstract class IntegrationTest : IClassFixture<FiresealApplicationFactory
                 builder.ConfigureLogging(logging =>
                 {
                     logging.ClearProviders();
-                    logging.AddXunit(testOutputHelper);
                 });
             });
 
