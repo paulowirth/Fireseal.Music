@@ -1,4 +1,4 @@
-﻿# Abstra Challenge
+﻿# Fireseal Music API
 
 ## Table of Contents
 - [Business Capabilities](#business-capabilities)
@@ -18,7 +18,7 @@
 - [Notes](#notes)
 - [License](#license)
 
-A simple, layered .NET API for managing albums and tracks, built with best practices for architecture, testing, and maintainability.
+Sample .NET 10 API for managing albums and tracks to demonstrate Clean Architecture, integration testing, and modern backend design.
 
 ## Business Capabilities
 The Abstra Challenge API allows authenticated users to manage music albums and tracks. It supports creating, listing, updating, and deleting albums and tracks, with all operations protected by JWT authentication. This API is suitable for music catalog management, digital music libraries, or as a backend for music-related applications.
@@ -32,19 +32,19 @@ The Abstra Challenge API allows authenticated users to manage music albums and t
 
 ## Endpoints Overview
 
-| Endpoint                        | Method | Description                        | Auth Required |
-|----------------------------------|--------|------------------------------------|--------------|
-| `/authentication/token`          | POST   | Obtain JWT token                   | No           |
-| `/abstra/albums`                 | GET    | List all albums                    | Yes          |
-| `/abstra/albums`                 | POST   | Create a new album                 | Yes          |
-| `/abstra/albums/{id}`            | GET    | Get album by ID                    | Yes          |
-| `/abstra/albums/{id}`            | PUT    | Update album                       | Yes          |
-| `/abstra/albums/{id}`            | DELETE | Delete album                       | Yes          |
-| `/abstra/tracks`                 | GET    | List all tracks                    | Yes          |
-| `/abstra/tracks`                 | POST   | Create a new track                 | Yes          |
-| `/abstra/tracks/{id}`            | GET    | Get track by ID                    | Yes          |
-| `/abstra/tracks/{id}`            | PUT    | Update track                       | Yes          |
-| `/abstra/tracks/{id}`            | DELETE | Delete track                       | Yes          |
+| Endpoint                           | Method | Description                        | Auth Required |
+|------------------------------------|--------|------------------------------------|--------------|
+| `/authentication/token`            | POST   | Obtain JWT token                   | No           |
+| `/fireseal/albums`                 | GET    | List all albums                    | Yes          |
+| `/fireseal/albums`                 | POST   | Create a new album                 | Yes          |
+| `/fireseal/albums/{id}`            | GET    | Get album by ID                    | Yes          |
+| `/fireseal/albums/{id}`            | PUT    | Update album                       | Yes          |
+| `/fireseal/albums/{id}`            | DELETE | Delete album                       | Yes          |
+| `/fireseal/tracks`                 | GET    | List all tracks                    | Yes          |
+| `/fireseal/tracks`                 | POST   | Create a new track                 | Yes          |
+| `/fireseal/tracks/{id}`            | GET    | Get track by ID                    | Yes          |
+| `/fireseal/tracks/{id}`            | PUT    | Update track                       | Yes          |
+| `/fireseal/tracks/{id}`            | DELETE | Delete track                       | Yes          |
 
 ## Endpoint Examples
 
@@ -68,7 +68,7 @@ _Response:_
 
 ### Albums
 
-**GET /abstra/albums**
+**GET /fireseal/albums**
 
 _Response:_
 ```json
@@ -85,7 +85,7 @@ _Response:_
 ]
 ```
 
-**POST /abstra/albums**
+**POST /fireseal/albums**
 
 _Request:_
 ```json
@@ -105,7 +105,7 @@ _Response:_
 }
 ```
 
-**GET /abstra/albums/{id}**
+**GET /fireseal/albums/{id}**
 
 _Response:_
 ```json
@@ -120,7 +120,7 @@ _Response:_
 }
 ```
 
-**PUT /abstra/albums/{id}**
+**PUT /fireseal/albums/{id}**
 
 _Request:_
 ```json
@@ -133,14 +133,14 @@ _Request:_
 _Response:_
 HTTP 204 No Content
 
-**DELETE /abstra/albums/{id}**
+**DELETE /fireseal/albums/{id}**
 
 _Response:_
 HTTP 200 OK
 
 ### Tracks
 
-**GET /abstra/tracks**
+**GET /fireseal/tracks**
 
 _Response:_
 ```json
@@ -155,7 +155,7 @@ _Response:_
 ]
 ```
 
-**POST /abstra/tracks**
+**POST /fireseal/tracks**
 
 _Request:_
 ```json
@@ -167,12 +167,13 @@ _Request:_
 }
 ```
 _Response:_
+```json
 {
   "id": "track-guid-here"
 }
 ```
 
-**GET /abstra/tracks/{id}**
+**GET /fireseal/tracks/{id}**
 
 _Response:_
 ```json
@@ -185,7 +186,7 @@ _Response:_
 }
 ```
 
-**PUT /abstra/tracks/{id}**
+**PUT /fireseal/tracks/{id}**
 
 _Request:_
 ```json
@@ -199,30 +200,30 @@ _Request:_
 _Response:_
 HTTP 204 No Content
 
-**DELETE /abstra/tracks/{id}**
+**DELETE /fireseal/tracks/{id}**
 
 _Response:_
 HTTP 200 OK
 
 ## Project Structure
 ```
-Abstra.Challenge.sln
+Fireseal.Music.sln
 src/
-  Abstra.Challenge.Api/           # API entrypoint and configuration
-  Abstra.Challenge.Application/   # Application services, DTOs, business logic
-  Abstra.Challenge.Domain/        # Domain entities and abstractions
-  Abstra.Challenge.Infrastructure/# Persistence, context, repository implementations
-  Abstra.Challenge.Presentation/  # Controllers, middlewares, validators
+  Fireseal.Music.Api/           # API entrypoint and configuration
+  Fireseal.Music.Application/   # Application services, DTOs, business logic
+  Fireseal.Music.Domain/        # Domain entities and abstractions
+  Fireseal.Music.Infrastructure/# Persistence, context, repository implementations
+  Fireseal.Music.Presentation/  # Controllers, middlewares, validators
 
 test/
-  Abstra.Challenge.Tests.Unit/        # Unit tests
-  Abstra.Challenge.Tests.Integration/ # Integration tests (in-memory DB)
+  Fireseal.Music.Tests.Unit/        # Unit tests
+  Fireseal.Music.Tests.Integration/ # Integration tests (in-memory DB)
 ```
 
 ## Getting Started
 
 ### Prerequisites
-- [.NET 9+ SDK](https://dotnet.microsoft.com/download)
+- [.NET 10+ SDK](https://dotnet.microsoft.com/download)
 - (Optional) [SQLite CLI](https://www.sqlite.org/download.html) for inspecting the database
 
 ### Running the API
@@ -237,7 +238,7 @@ test/
    ```
 3. **Run the API:**
    ```sh
-   dotnet run --project src/Abstra.Challenge.Api
+   dotnet run --project src/Fireseal.Music.Api
    ```
 4. **Access Swagger UI:**
    Open [https://localhost:{port}/swagger](https://localhost:5001/swagger) in your browser (the application should redirect automatically).
@@ -249,11 +250,11 @@ test/
 ### Running Tests
 - **Unit tests:**
   ```sh
-  dotnet test test/Abstra.Challenge.Tests.Unit
+  dotnet test test/Fireseal.Musice.Tests.Unit
   ```
 - **Integration tests:**
   ```sh
-  dotnet test test/Abstra.Challenge.Tests.Integration
+  dotnet test test/Fireseal.Music.Tests.Integration
   ```
 
 Integration tests use an in-memory SQLite database and do not affect your local `abstra.db` file.
