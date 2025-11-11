@@ -21,7 +21,7 @@
 Sample .NET 10 API for managing albums and tracks to demonstrate Clean Architecture, integration testing, and modern backend design.
 
 ## Business Capabilities
-The Abstra Challenge API allows authenticated users to manage music albums and tracks. It supports creating, listing, updating, and deleting albums and tracks, with all operations protected by JWT authentication. This API is suitable for music catalog management, digital music libraries, or as a backend for music-related applications.
+This simple music API allows authenticated users to manage music albums and tracks. It supports creating, listing, updating, and deleting albums and tracks, with all operations protected by JWT authentication. This API is suitable for music catalog management, digital music libraries, or as a backend for music-related applications.
 
 ## Features
 - Clean architecture (Domain, Application, Infrastructure, Presentation, API)
@@ -257,7 +257,7 @@ test/
   dotnet test test/Fireseal.Music.Tests.Integration
   ```
 
-Integration tests use an in-memory SQLite database and do not affect your local `abstra.db` file.
+Integration tests use an in-memory SQLite database and do not affect your local `fireseal.db` file.
 
 ## Architecture
 - **Domain:** Core entities and business rules
